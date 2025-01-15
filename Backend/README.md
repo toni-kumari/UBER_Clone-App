@@ -2,7 +2,6 @@
 
 ## `/users/register` Endpoint
 
-
 ### Description
 Creates a new user account with the provided information.
 
@@ -11,7 +10,7 @@ Creates a new user account with the provided information.
 `POST`
 
 ### Request Body
-The request body shold be in JSON format
+The request body should be in JSON format
 ```json
 {
     "fullname": {
@@ -28,7 +27,6 @@ The request body shold be in JSON format
 - `email`: Valid email address
 - `password`: Password (minimum 6 characters)
 
-
 ### Example Request
 ```json
 {
@@ -36,6 +34,52 @@ The request body shold be in JSON format
         "firstname": "John",
         "lastname": "Doe"
     },
+    "email": "john.doe@example.com",
+    "password": "password123"
+}
+```
+
+### Example Response
+```json
+{
+    "token": "your_generated_jwt_token",
+    "user": {
+        "fullname": {
+            "firstname": "John",
+            "lastname": "Doe"
+        },
+        "_id": "user_id",
+        "email": "john.doe@example.com",
+    "password": "securepassword123"
+    }
+}
+```
+
+## `/users/login` Endpoint
+
+### Description
+Authenticates a user and returns a JWT token.
+
+### HTTP Method
+
+`POST`
+
+### Request Body
+The request body should be in JSON format
+```json
+{
+    "email": "string",
+    "password": "string"
+}
+```
+
+### Required Fields
+- `email`: Valid email address
+- `password`: Password (minimum 6 characters)
+
+### Example Request
+```json
+{
     "email": "john.doe@example.com",
     "password": "password123"
 }
