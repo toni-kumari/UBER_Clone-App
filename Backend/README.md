@@ -90,12 +90,67 @@ The request body should be in JSON format
 {
     "token": "your_generated_jwt_token",
     "user": {
-        "_id": "user_id",
         "fullname": {
             "firstname": "John",
             "lastname": "Doe"
         },
+        "_id": "user_id",
         "email": "john.doe@example.com"
     }
+}
+```
+
+## `/users/profile` Endpoint
+
+### Description
+Fetches the profile of the authenticated user.
+
+### HTTP Method
+
+`GET`
+
+### Headers
+- `Authorization`: Bearer token
+
+### Example Request
+```http
+GET /users/profile HTTP/1.1
+Authorization: Bearer your_generated_jwt_token
+```
+
+### Example Response
+```json
+{
+    "fullname": {
+        "firstname": "John",
+        "lastname": "Doe"
+    },
+    "_id": "user_id",
+    "email": "john.doe@example.com"
+}
+```
+
+## `/users/logout` Endpoint
+
+### Description
+Logs out the authenticated user by invalidating the JWT token and blacklist the token provided in cookie or headers.
+
+### HTTP Method
+
+`GET`
+
+### Headers
+- `Authorization`: Bearer token
+
+### Example Request
+```http
+GET /users/logout HTTP/1.1
+Authorization: Bearer your_generated_jwt_token
+```
+
+### Example Response
+```json
+{
+    "message": "Logged out successfully"
 }
 ```
