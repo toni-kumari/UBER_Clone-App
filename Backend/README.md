@@ -154,3 +154,82 @@ Authorization: Bearer your_generated_jwt_token
     "message": "Logged out successfully"
 }
 ```
+
+## `/captains/register` Endpoint
+
+### Description
+Creates a new captain account with the provided information.
+
+### HTTP Method
+
+`POST`
+
+### Request Body
+The request body should be in JSON format
+```json
+{
+    "fullname": {
+        "firstname": "string",
+        "lastname": "string"
+    },
+    "email": "string",
+    "password": "string",
+    "vehicle": {
+        "color": "string",
+        "plate": "string",
+        "capacity": "number",
+        "vehicleType": "string"
+    }
+}
+```
+
+### Required Fields
+- `fullname.firstname`: Captain's first name (minimum 3 characters)
+- `fullname.lastname`: Captain's last name
+- `email`: Valid email address
+- `password`: Password (minimum 6 characters)
+- `vehicle.color`: Vehicle color (minimum 3 characters)
+- `vehicle.plate`: Vehicle plate (minimum 3 characters)
+- `vehicle.capacity`: Vehicle capacity (minimum 1)
+- `vehicle.vehicleType`: Vehicle type (must be one of 'car', 'motorcycle', 'auto')
+
+### Example Request
+```json
+{
+    "fullname": {
+        "firstname": "Jane",
+        "lastname": "Doe"
+    },
+    "email": "jane.doe@example.com",
+    "password": "password123",
+    "status": "inactive",
+    "vehicle": {
+        "color": "red",
+        "plate": "ABC123",
+        "capacity": 4,
+        "vehicleType": "car"
+    }
+}
+```
+
+### Example Response
+```json
+{
+    "captain": {
+        "fullname": {
+            "firstname": "Jane",
+            "lastname": "Doe"
+        },
+        
+        "email": "jane.doe@example.com",
+        "vehicle": {
+            "color": "red",
+            "plate": "ABC123",
+            "capacity": 4,
+            "vehicleType": "car"
+        },
+        "_id": "captain_id"
+    },
+    "token": "your_generated_jwt_token",
+}
+```
