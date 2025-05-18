@@ -6,7 +6,7 @@ import UserSignup from './pages/UserSignup';
 import Captainlogin from './pages/Captainlogin';
 import CaptainSignup from './pages/CaptainSignup';
 import HomeElement from './pages/HomeElement';
-import UserProtectedWrapper from './pages/UserProtectedWrapper';
+import UserProtectedWrapper from './pages/UserProtectWrapper';
 import UserLogout from './pages/UserLogout';
 import CaptainHome from './pages/CaptainHome';
 
