@@ -12,7 +12,7 @@ router.post('/register', [
     body('password').isLength({min: 6}).withMessage
     ('Password must be at least 6 characters long')
 ],
-  userController.registerUser
+  userController.register
 )
 
 router.post('/login', [
